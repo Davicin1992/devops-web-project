@@ -27,14 +27,12 @@ sh 'docker system prune -a --volumes --force --filter "label=devops-web-projects
 }
 stage('build image') {
 steps {
-sh 'docker build -t dcuergon/devops-web-project:v1 --label devops-webproject-
-server .'
+sh 'docker build -t dcuergon/devops-web-project:v1 --label devops-webproject-server .'
 }
 }
 stage('run container') {
 steps {
-sh 'docker run -d --name devops-web-project-server --label devops-web-projectserver
--p 8081:8080 dcuergon/devops-web-project:v1'
+sh 'docker run -d --name devops-web-project-server --label devops-web-projectserver-p 8081:8080 dcuergon/devops-web-project:v1'
 }
 }
 }
